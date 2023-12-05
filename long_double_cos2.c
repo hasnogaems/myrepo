@@ -24,7 +24,7 @@ long double cosl21( double input){
     long double cosl21=0;
     int i=0;
     long double previous=1000;
-    if(input<6.28318&&input>0){
+    if(1){
     
     while(abs(previous-cosl21>0.00001)){
          cosl21=cosl21+((pow(-1, i)*pow(input, 2*i))/fact(2*i));
@@ -44,7 +44,7 @@ return cosl21;
 
 int main(int argc, char** argv){
  long double x=pow(2, 2);
- double value=6;
+ double value=6000;
  //printf("%Lf", x); // lf  выдает 0000000 так что есть разница Lf или lf
  printf("fact of 3=%lf\n", value);
 printf("cos=%Lf\n", cosl21(value));

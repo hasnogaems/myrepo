@@ -23,19 +23,24 @@ long double fact(long double input){
 long double cosl21(long double input){
     long double cosl21=0;
     int i;
+    long double x;
     long double previous=1000;
-    if(input<6.28318&&input>0){
+    if(1){
     
-    for(i=0;i<100;i++){
-         cosl21=cosl21+((pow(-1, i)*pow(input, 2*i))/fact(2*i));
+    for(i=0;i<200;i++){
+        if(i==199)
+        printf("bugged iteration %Lf\n", ((pow(-1, i)*pow(input, 2*i))/fact(2*i)));
+        printf("on iteration%d %Lf\n", i, cosl21);
+        x=cosl21+((pow(-1, i)*pow(input, 2*i))/fact(2*i));
+        if(x!=HUGE_VAL&&x!=-HUGE_VAL) cosl21=cosl21+((pow(-1, i)*pow(input, 2*i))/fact(2*i));
          
          previous=cosl21;
      }
     
 
-}
+}//как  это вообще работает оно должно идти в deadloop
 else{
-    printf("value from 0 to 6.283§18");
+    printf("value from 0 to 6.28318");
 
 }
 return cosl21;
