@@ -24,29 +24,38 @@ long double cosl21( double input){
     long double cosl21=0;
     int i=0;
     long double previous=1000;
-    if(1){
+    long double x;
+    while(input>2*M_PI){
+    input=input-(2*M_PI);
+    }
     
-    while(abs(previous-cosl21>0.00001)){
-         cosl21=cosl21+((pow(-1, i)*pow(input, 2*i))/fact(2*i));
+    while(fabs(previous-cosl21)>0.000000001){
+        previous=cosl21;
+        x=((pow(-1, i)*pow(input, 2*i))/fact(2*i));
+
+         if(x!=HUGE_VAL&&x!=-HUGE_VAL)cosl21=cosl21+((pow(-1, i)*pow(input, 2*i))/fact(2*i));
          
-         previous=cosl21;
+         
          i++;
      }
     
-
-}
-else{
-    printf("value from 0 to 6.28318");
-
-}
 return cosl21;
 }
+//long double 
 
-int main(int argc, char** argv){
+
+
+int main(int argc, double* argv[]){
  long double x=pow(2, 2);
- double value=6000;
+ //double value=6660;
+ //double value=(int)*argv[1][0];
+ double value;
+ 
+   printf("%Lf\n", argv[1][1]);
+ 
+ //long double value=(long double) *argv[1];
  //printf("%Lf", x); // lf  выдает 0000000 так что есть разница Lf или lf
- printf("fact of 3=%lf\n", value);
+ printf("value=%lf\n", value);
 printf("cos=%Lf\n", cosl21(value));
 printf("math.h cos=%Lf\n", cosl(value));
 
