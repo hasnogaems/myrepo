@@ -85,11 +85,23 @@ long double sin21(double input){
 
 }
 
+long double tan21(double input){
+    long double tan21=0;
+    long double previous=1000;
+    int i=3;
+    
+        tan21=sin21(input)/cosl21(input);
+        
+    return tan21;
+
+
+}
+
 
 
 int main(int argc, double* argv[]){
  long double x=pow(2, 2);
- double value=-0;
+ double value=-50;
  //double value=(int)*argv[1][0];
  //double value;
  printf("math.h cos=%Lf\n", cosl(value));
@@ -102,6 +114,8 @@ int main(int argc, double* argv[]){
 printf("math.h cos=%Lf\n", cosl(value));
 printf("sin=%Lf\n", sin21(value));
 printf("math.h sin=%Lf\n", sinl(value));
+printf("math.h tan=%Lf\n", tanl(value));
+printf("21 tan=%Lf", tan21(value));
 
 
     
