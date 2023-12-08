@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define NAN (0.0 / 0.0)
+
 #define s21_INFINITY (1.0 / 0.0)
 // long double pow(long double x, int pow){
 //     long double y=x;
@@ -122,18 +122,15 @@ int main() {
   // printf("math.h sin=%Lf\n", sinl(value));
   // printf("math.h tan=%Lf\n", tanl(value));
   // printf("21 tan=%Lf", tan21(value));
-  double k = 2 * M_PI;
+  double k = 2 * s21_M_PI;
   for (int R = 20; R >= -20; R -= 4) {
-    for (; k > -2 * M_PI; k -= M_PI / 17) {
-      if (cos(k + R * M_PI) != s21_cos(k + R * M_PI)) {
+    for (; k > -2 * s21_M_PI; k -= s21_M_PI / 17) {
+      if (cos(k + R * s21_M_PI) != s21_cos(k + R * s21_M_PI)) {
 
-        printf("x=%f s21=%Lf m=%Lf\n", k + R, s21_cos(k + R * M_PI),
-               cos(k + R * M_PI));
+        printf("x=%f s211=%Lf m=%f\n", k + R, s21_cos(k + R * s21_M_PI),
+               cos(k + R * s21_M_PI));
       }
     }
-    //  if(cos(k + R * M_PI)!=s21_cos(k + R * M_PI)){
-    //     break;
-    //    }
   }
   printf("s21cos=%Lf\n", s21_cos(value));
   printf("cosl=%Lf", cosl21(value));
