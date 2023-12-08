@@ -142,13 +142,13 @@ START_TEST(sin_test_1) {
 END_TEST
 
 START_TEST(cos_test_1) {
-  for (int R = 20; R >= -20; R -= 4) {
-    for (double k = 2 * s21_M_PI; k > -2 * s21_M_PI; k -= s21_M_PI / 17) {
-      ck_assert_double_eq_tol(cosl(k + R * s21_M_PI), s21_cos(k + R * s21_M_PI),
-                              1e-6);
+  double k = 0.0;
+  for(;k<999;k=k+0.1){
+      ck_assert_double_eq_tol(cosl(k), s21_cos(k),
+                              1e-6);}
     }
-  }
-}
+  
+
 END_TEST
 
 START_TEST(tan_test_1) {

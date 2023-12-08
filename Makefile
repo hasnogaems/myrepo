@@ -3,7 +3,7 @@ CFLAGS = -std=c11 -Wall -Wextra -Werror -pedantic -ftest-coverage -fprofile-arcs
 LIBS = -lm
 GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 
-.PHONY: all clean test gcov_report
+.PHONY: all clean test gcov_report debug
 
 all: s21_math.a test
 
@@ -11,7 +11,7 @@ s21_math.a: s21_math.o
 	ar rcs $@ $^
 
 s21_math.o: s21_math.c s21_math.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 test: test_s21_math.o s21_math.o
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ -lcheck -lm -lpthread
@@ -41,3 +41,6 @@ rebuild: clean all
 	clear
 
 re:clean test1
+
+debug:
+	gcc my_functions.c s21_math.c -o debug

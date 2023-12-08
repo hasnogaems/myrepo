@@ -122,19 +122,27 @@ int main() {
   // printf("math.h sin=%Lf\n", sinl(value));
   // printf("math.h tan=%Lf\n", tanl(value));
   // printf("21 tan=%Lf", tan21(value));
-  double k = 2 * M_PI;
-  for (int R = 20; R >= -20; R -= 4) {
-    for (; k > -2 * M_PI; k -= M_PI / 17) {
-      if (cos(k + R * M_PI) != s21_cos(k + R * M_PI)) {
+ 
+  // double k = 2 * M_PI;
+  // for (int R = 20; R >= -20; R -= 4) {
+  //   for (; k > -2 * M_PI; k -= M_PI / 17) {
+  //     if (cos(k + R * M_PI) != s21_cos(k + R * M_PI)) {
 
-        printf("x=%f s21=%Lf m=%Lf\n", k + R, s21_cos(k + R * M_PI),
-               cos(k + R * M_PI));
-      }
-    }
+  //       printf("x=%f s21=%Lf m=%Lf\n", k + R, s21_cos(k + R * M_PI),
+  //              cos(k + R * M_PI));
+  //     }
+  //   }
+  
+  double k = 0.0;
+  for(;k<999;k=k+0.1){
+    if(fabsl(s21_cos(k) - cosl(k)) < 1e-6)
+    printf("failed: cosl(%Lf) == %Lf, s21_cos(%Lf) == %Lf", k, cosl(k), k, s21_cos(k));
+  }
+
     //  if(cos(k + R * M_PI)!=s21_cos(k + R * M_PI)){
     //     break;
     //    }
-  }
+  
   printf("s21cos=%Lf\n", s21_cos(value));
   printf("cosl=%Lf", cosl21(value));
 }

@@ -123,7 +123,7 @@ long double s21_cos(double input) {
     }
   }
 
-  while (s21_fabs((previous - cosl21)) > 0.00000000001) {
+  while (s21_fabs((previous - cosl21)) > 0.00000000000001) {
     previous = cosl21;
 
     if (x != s21_INFINITY && x != -s21_INFINITY && x != s21_INFINITY)

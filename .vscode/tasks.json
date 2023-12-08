@@ -8,6 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "s21_math.c",
                 "-lm",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
@@ -27,12 +28,14 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc-11 build active file",
-            "command": "/usr/bin/gcc-11",
+            "command": "/usr/local/bin/gcc-11",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "s21_math.c",
                 "-lm",
+                "-lcheck",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
