@@ -135,14 +135,16 @@ int main() {
   
   double k = 0.0;
   for(;k<999;k=k+0.1){
-    if(fabsl(s21_cos(k) - cosl(k)) < 1e-6)
-    printf("failed: cosl(%Lf) == %Lf, s21_cos(%Lf) == %Lf", k, cosl(k), k, s21_cos(k));
+    if(fabsl(s21_cos(k) - cosl(k)) > 1e-6){
+    printf("failed: cosl(%f) == %Lf, s21_cos(%f) == %Lf input=%f\n", k, cosl(k), k, s21_cos(k), k);
+    break;}
+    
   }
 
     //  if(cos(k + R * M_PI)!=s21_cos(k + R * M_PI)){
     //     break;
     //    }
   
-  printf("s21cos=%Lf\n", s21_cos(value));
-  printf("cosl=%Lf", cosl21(value));
+  printf("s21cos(6.300000)=%Lf %f\n", s21_cos(6.300000), k);
+  printf("cosl=%Lf", cosl21(0.044318));
 }

@@ -14,7 +14,7 @@ s21_math.o: s21_math.c s21_math.h
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 test: test_s21_math.o s21_math.o
-	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ -lcheck -lm -lpthread
+	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ -lcheck -lm -lpthread -lsubunit
 
 test1: m.o s21_math.o
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ -lcheck -lm -lpthread
@@ -43,4 +43,4 @@ rebuild: clean all
 re:clean test1
 
 debug:
-	gcc my_functions.c s21_math.c -o debug
+	gcc my_functions.c s21_math.c -o debug -lm

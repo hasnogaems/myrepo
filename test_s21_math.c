@@ -126,7 +126,7 @@ START_TEST(log_test_5) {
   ck_assert_double_eq(log(INFINITY), s21_log(s21_INFINITY));
   ck_assert_double_nan(s21_log(-s21_INFINITY));
   ck_assert_double_eq(log(1), s21_log(1));
-  ck_assert_double_eq(log(M_E), s21_log(s21_M_E));
+  ck_assert_double_eq(log(s21_M_E), s21_log(s21_M_E));
   ck_assert_double_eq_tol(log(2), s21_log(2), 1e-6);
 }
 END_TEST
@@ -171,8 +171,8 @@ START_TEST(sin_cos_tan_test) {
   ck_assert_double_nan(s21_sin(-s21_INFINITY));
   ck_assert_double_nan(s21_cos(-s21_INFINITY));
   ck_assert_double_nan(s21_tan(-s21_INFINITY));
-  ck_assert_double_eq_tol(tanl(M_PI / 2), s21_tan(s21_M_PI / 2), 1e-7);
-  ck_assert_double_eq_tol(tanl(-M_PI / 2), s21_tan(-s21_M_PI / 2), 1e-7);
+  ck_assert_double_eq_tol(tanl(s21_M_PI / 2), s21_tan(s21_M_PI / 2), 1e-7);
+  ck_assert_double_eq_tol(tanl(-s21_M_PI / 2), s21_tan(-s21_M_PI / 2), 1e-7);
 }
 END_TEST
 
